@@ -1,161 +1,150 @@
-/* Google fonts import */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-/* Asterisk wildcard selector to override default styles added by the browser */
-* {
-    padding: 0;
-    margin: 0;
+/* CSS Variables */
+:root {
+    --primary-color: #6c63ff; /* Vibrant primary color */
+    --secondary-color: #ff6584; /* Accent color for interactive elements */
+    --text-color: #333; /* Main text color */
+    --background-color: #f0f0f0; /* Light background for contrast and readability */
+    --container-padding: 1rem; /* Consistent padding across the website */
+    --border-radius: 8px; /* Rounded corners for card elements and buttons */
+    --transition-speed: 0.3s; /* Uniform speed for hover effects and transitions */
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-/* General styles */
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* Generic project styles */
-    color: #3a3a3a;
-    font-family: 'Lato', sans-serif;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
 }
 
-h1, h2, h3 {
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #252525;
-}
-
-.hidden-heading {
-    display: none;
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
 /* Header */
 header {
-    background-color: #ffffff;
-    padding: 0 1rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: var(--container-padding);
     position: fixed;
-    z-index: 99;
+    top: 0;
+    left: 0;
     width: 100%;
-    box-shadow: 0 2px 2px #3a3a3a;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 
 header a {
+    color: white;
     text-decoration: none;
-    color: inherit;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed);
 }
 
-#menu {
-    font-size: 110%;
-    letter-spacing: 4px;
-    list-style-type: none;
+header a:hover {
+    background-color: rgba(255,255,255,0.2);
 }
 
-#menu > li {
-    margin-bottom: 1em;
-}
-
-.active {
-    border-bottom: 1px solid #3a3a3a;
-}
-
-/* Navbar styles with dropdown toggle */
-nav {
-    position: absolute;
-    background-color: #ffffff;
-    width: 100%;
-    left: 0;
-    padding: 0 1rem;
-    box-shadow: 0 2px 2px #3a3a3a;
-    display: none;
-    top: 100%;
-}
-
-/* Nav toggle */
-#nav-toggle:checked~nav {
-    display: block;
-}
-
-#nav-toggle {
-    display: none;
-}
-
-.nav-toggle-label {
-    font-size: 2rem;
-}
-
-/* Main content */
-main {
-    /* Enlarge main element to push footer down*/
-    flex: 1 0 auto;
-    /* Add margin at the top to prevent content from being covered by the header */
-    margin-top: 47px;
-    /* Enable flex properties for child elements */
+/* Navigation */
+nav ul {
+    list-style: none;
     display: flex;
-    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
 }
 
-/* Hero section */
+/* Hero Section */
 #hero {
-    height: 600;
-    width: 100%;
-    background: url("../images/Main-picture.jpg") no-repeat center center/cover;
-    position: relative;
-}
-
-#cover-text {
-    /* Final rgba value sets the opacity so it is semi-transparent */
-    background-color: rgba(241, 109, 107, .7);
-    font-size: 130%;
-    position: absolute;
-    bottom: 30px;
-    width: 80%;
-    min-height: 200px;
-    padding-top: 40px;
-    padding-left: 10px;
-}
-
-#cover-text > h2, #cover-text > h3 {
-    color: #ffffff;
-}
-
-/* Hacks section */
-#hacks {
-    width: 90%;
-    margin: 20px auto;
-}
-
-#hacks h2 {
-    margin-bottom: 20px;
+    background: url('../images/Main-picture.jpg') no-repeat center center/cover;
+    color: white;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
-    font-size: 280%;
 }
 
-.hack {
-    background-color: #f2f2f2;
-    padding: 20px;
-    margin-bottom: 20px;
+#hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.hack h3 {
-    color: #252525;
+#hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+/* Main Content */
+main {
+    padding: 2rem 0;
+    width: 90%;
+    max-width: 1200px;
+    margin: -60px auto 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Cards Layout */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 /* Footer */
 footer {
+    background: var(--primary-color);
+    color: white;
     text-align: center;
-    padding: 20px 0;
-    background-color: #f2f2f2;
+    padding: 1rem 0;
 }
 
-#social-networks {
-    list-style-type: none;
+/* Media Queries for Responsive Design */
+@media screen and (min-width: 768px) {
+    header {
+        padding: 0 2rem;
+    }
+
+    #hero h1 {
+        font-size: 3rem;
+    }
+
+    #hero p {
+        font-size: 1.5rem;
+    }
 }
 
-#social-networks i {
-    font-size: 24px;
-    margin: 0 10px;
-    color: #3a3a3a;
+@media screen and (min-width: 992px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
