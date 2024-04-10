@@ -1,2 +1,2 @@
-# Live-Hacks
-Live Hacks Project.
+# Life-Hacks
+Life Hacks Project.
