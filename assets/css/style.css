@@ -1,6 +1,8 @@
+User
 /* Google fonts import */
+{  
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@200;300;400;500;600;700&display=swap');
-
+  }
 /* Asterisk wildcard selector to override default styles added by the browser */
 * {
     padding: 0;
@@ -208,7 +210,20 @@ main {
     background-color: #454b1b;
     color: #fafafa;
 }
-
+/* Categories */
+#categories {
+    background-image: url("../images/Categories-image.jpg");
+    background-size: cover;
+    background-position: 75%;
+    padding: 20px 10% 0 10%;
+    flex-grow: 1;
+}
+.categories-list {
+    list-style-type: "\1F44D";   
+     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 /* Footer */
 #social-networks {
     text-align: center;
@@ -226,15 +241,6 @@ main {
 footer {
     border-top: 3px solid #2b2a2a; /* Adjust color and thickness as desired */
     /* Your existing footer styles */
-}
-
-
-/* Media query: large or landscape phones (576px and up) */
-@media screen and (min-width: 576px) {
-    #photos {
-        column-count: 2;
-        column-gap: 0;
-    }
 }
 
 /* Media query: tablets and larger (768px and up) */
@@ -295,6 +301,11 @@ footer {
         text-align: end;
         align-self: flex-end;
     }
+    #categories {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
     /* Form */
     #signup {
@@ -319,13 +330,13 @@ footer {
     }
 }
 
+
 /* Large devices (laptops and desktops, 992px and up) */
 @media screen and (min-width: 992px) {
     #menu a:hover{
         border-bottom: 1px solid #3a3a3a;
     }
-
-
+}
 
 @media screen and (min-width: 1200px) {    
     /* Reasons section */
@@ -353,67 +364,4 @@ footer {
     #benefits-physical > div {
         align-self: flex-end;
     }
-
-/*   Category Page  */
-body {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px;
-}
-
-.category-hero {
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 20px;
-    text-align: center;
-}
-
-.hacks-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 0;
-}
-
-.hack {
-    background: #534242;
-    box-shadow: 0 2px 5px rgba(0,0,0,.1);
-    border-radius: 5px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.hack img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.hack-info {
-    padding: 20px;
-}
-
-.hack-info h2 {
-    color: #007bff;
-}
-
-.read-more {
-    display: inline-block;
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 10px 15px;
-    margin-top: 15px;
-    border-radius: 5px;
-    text-decoration: none;
-}
+ }
