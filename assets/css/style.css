@@ -218,12 +218,26 @@ main {
     padding: 20px 10% 0 10%;
     flex-grow: 1;
 }
-.categories-list {
-    list-style-type: "\1F44D";   
-     display: flex;
+.categories-list ul {
+    padding: 0; /* Removes default padding */
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    list-style-type: none; /* Removes default list style */
 }
+
+.categories-list li {
+    position: relative;
+    padding-left: 30px; /* Provides space for the custom bullet */
+}
+
+.categories-list li:before {
+    content: "\1F44D"; /* Your Unicode character for thumbs up */
+    position: absolute;
+    left: 0;
+    font-size: 15px; /* Adjust size as needed */
+}
+
 /* Footer */
 #social-networks {
     text-align: center;
